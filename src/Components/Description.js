@@ -1,6 +1,8 @@
-const Description = ({description}) => {
+const Description = ({description , mode}) => {
     return(
-        <div>{description}</div>
+        <div className="description">
+            <span>{description}</span>
+        </div>
     )
 }
 

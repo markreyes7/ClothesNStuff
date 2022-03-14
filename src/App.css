@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.weather-box{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border: 1px solid white;
+  border-radius: 10px;
   color: white;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 30%;
+  justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.header{
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.temperature{
+  padding: 7px;
+  display: flex;
+  justify-content: center;
+}
+
+.flex-high-low{
+  display: flex;
+  flex-direction: row;
+  gap: 11px;
+  padding-top: 5px;
+}
+
+.daytime{
+  background:  linear-gradient(180deg,  rgba(29,175,253,1) 7%, rgb(255, 255, 255) 93%);
+  height: 100vh;
+  position: relative;
+}
+
+.description{
+  padding-bottom: 8px;
+}
+
+.flex-date-time{
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  padding: 6px;
+}
+
+.nighttime{
+    background: linear-gradient(1.0turn, #1965f3, #c0c8ba, #5d5954);
+    height: 100vh;
+    position: relative;
 }
