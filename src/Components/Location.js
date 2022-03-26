@@ -9,7 +9,7 @@ const Location = ({ location, setLocation, mode }) => {
   const [searchBox, setSearchBox] = useState(false);
   const [newLocation, setNewLocation] = useState('')
   return (
-    <div className="header">
+    <div className="location">
       <h1 onClick={() => setSearchBox(!searchBox)}>{location} <Icon fitted name='angle down'></Icon></h1>
       {(searchBox) ? (<Form onSubmit={() => setLocation(newLocation)}>
        <Form.Input placeholder  ={location} name='newLocation' value={newLocation} onChange={handleChange}>
@@ -20,5 +20,3 @@ const Location = ({ location, setLocation, mode }) => {
 }
 
 export default Location
-
-//change line 7 when user input starts coming in.
