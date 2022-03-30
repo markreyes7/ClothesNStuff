@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from 'react';
 import DisplayMoreIcon from './Components/DisplayMoreIcon';
 import Activities from './Components/Activities';
+import Loader from './Components/Loader';
 
 
 let today = new Date();
@@ -31,7 +32,7 @@ function App() {
         <Weather setCurrTemp={setCurrTemp} currTemp={currTemp} location={location} setLocation={setLocation} displayActivities={displayActivities}  ></Weather>
         <DisplayMoreIcon displayActivities={displayActivities} setDisplayActivities={setDisplayActivities} />
         {(displayActivities) ? (<Activities currTemp={currTemp} mode={mode} location={location}></Activities>) : (<></>)}
-      
+        <Loader></Loader>
     </div>
   );
 }

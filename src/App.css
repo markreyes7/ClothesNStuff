@@ -122,6 +122,52 @@ img{
   text-align: center;
 }
 
+.moon{
+  position: relative;
+  grid-area: timeOfDay;
+  height: 200px;
+  width: 200px;
+  border-left: 15px solid #fff;
+  border-radius: 100%;
+  transform: rotate(-40deg);
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+
+.star-1{
+  position: absolute;
+  height: 3px;
+  width: 3px;
+  /* bottom: 20%; */
+  left: 32%;
+  top: 63%;
+  background-color: white;
+}
+
+.star-2{
+  position: absolute;
+  height: 3px;
+  width: 3px;
+  /* bottom: 20%; */
+  top: 84%;
+
+  left: 29%;
+  /* right: 8%; */
+  background-color: white;
+}
+
+.star-3{
+  position: absolute;
+  height: 3px;
+  width: 3px;
+  /* bottom: 20%; */
+  left: 22%;
+  
+  top: 72%;
+  /* right: 8%; */
+  background-color: white;
+}
 
 @media screen and (min-width:800px) {
   .nighttime{
@@ -129,7 +175,7 @@ img{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    ". display display display"
+    "timeOfDay display display display"
     "weather activities activities activities"
     "weather activities activities activities"
     ". activities activities activities"
@@ -143,7 +189,7 @@ img{
     grid-template-columns: 0.85fr 1.05fr 1.05fr 1.05fr;
     grid-template-rows: 0.75fr 1fr 1fr 1.25fr;
     grid-template-areas: 
-    ". display display display"
+    "timeOfDay display display display"
     "weather activities activities activities"
     "weather activities activities activities"
     ". activities activities activities"
@@ -154,6 +200,9 @@ img{
     grid-area: weather;
     margin-right: 115px;
     margin-left: 50px;
+    animation-name: slideInLeft;
+    animation-duration: 3s;
+    
   }
 
   .display-more{
@@ -180,6 +229,8 @@ img{
     grid-template-rows: 1fr 1fr;
     grid-area:  activities;
     margin-right: 15px;
+    animation-name: fadeIn;
+    animation-duration: 3.5s;
 
   }
 
@@ -188,6 +239,8 @@ img{
     height: 100%;
     width: 85%;
     flex-direction: column;
+    
+    
   }
 
   .activity-img{
@@ -198,12 +251,13 @@ img{
 
   .activity-name{
     text-align: center;
-    padding-top: 0;
+    padding-top: 5px;
+    padding-bottom: 6px;
   }
 
   .activity-location{
     text-align: center;
-    padding-top: 0;
+    padding-top: 4px;
   }
   
 }
@@ -217,7 +271,7 @@ img{
     grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 130vh;
     grid-template-areas: 
-    ". display display display"
+    "timeOfDay display display display"
     "weather activities activities activities"
     "weather activities activities activities"
     ". activities activities activities"
@@ -231,11 +285,35 @@ img{
     grid-template-columns: 0.85fr 1.05fr 1.05fr 1.05fr;
     grid-template-rows: 0.75fr 1fr 1fr 1.25fr;
     grid-template-areas: 
-    ". display display display"
+    "timeOfDay display display display"
     "weather activities activities activities"
     "weather activities activities activities"
     ". activities activities activities"
-
   }
 
+  .moon{
+    width: 250px;
+    height: 250px;
+    margin-left: 40px;
+  }
+
+}
+
+
+@keyframes slideInLeft{
+  from{
+    left: -300px;
+  }
+  to{
+    left: 0px;
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
