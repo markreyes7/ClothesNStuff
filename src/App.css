@@ -122,6 +122,21 @@ img{
   text-align: center;
 }
 
+.sun{
+  grid-area: timeOfDay;
+  display:inline-block;
+  border-radius:50%;
+  height:200px;
+  width:200px;
+  background:orange;
+  box-shadow: 0 0 10px orange,
+                0 0 60px orange,
+                0 0 200px yellow,
+                inset 0 0 80px yellow;
+  margin-left: 20px;
+  margin-top: 12px;
+}
+
 .moon{
   position: relative;
   grid-area: timeOfDay;
@@ -169,6 +184,10 @@ img{
   background-color: white;
 }
 
+
+.w-100{
+  width: 95% !important;
+}
 @media screen and (min-width:800px) {
   .nighttime{
     display: grid;
@@ -192,7 +211,7 @@ img{
     "timeOfDay display display display"
     "weather activities activities activities"
     "weather activities activities activities"
-    ". activities activities activities"
+    ". . . ."
 
   }
 

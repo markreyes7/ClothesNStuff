@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Loader = () => {
+const Loader = ({mode}) => {
     return (
-        <div className='moon'>
-            <div className='star-1'></div>
-            <div className='star-2'></div>
-            <div className='star-3'></div>
+        <div className={(mode === "daytime") ? ("sun") : ("moon")}>
+            <div className={(mode === "daytime") ?  ("") : ("star-1")}></div>
+            <div className={(mode === "daytime") ?  ("") : ("star-2")}></div>
+            <div className={(mode === "daytime") ?  ("") : ("star-3")}></div>
         </div>
     )
 }

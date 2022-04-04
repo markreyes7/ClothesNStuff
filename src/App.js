@@ -32,7 +32,7 @@ function App() {
         <Weather setCurrTemp={setCurrTemp} currTemp={currTemp} location={location} setLocation={setLocation} displayActivities={displayActivities}  ></Weather>
         <DisplayMoreIcon displayActivities={displayActivities} setDisplayActivities={setDisplayActivities} />
         {(displayActivities) ? (<Activities currTemp={currTemp} mode={mode} location={location}></Activities>) : (<></>)}
-        <Loader></Loader>
+        <Loader mode={mode}></Loader>
     </div>
   );
 }

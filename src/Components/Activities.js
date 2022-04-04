@@ -13,6 +13,7 @@ const Activities = ({location, mode, currTemp}) => {
         const warmDaytimeFoods = ["brunch", "bakeries", "lunch", "coffee"];
         const hotDaytimeFoods = ["acaibowls", "juicebars", "poke" ,"lunch"]
         const nighttimeFoods = ["foodtrucks", "dinner", "icecream"]
+        const coolDaytimeFoods = ["coffee", "diyfood", "food"];
         if (mode === "daytime" && (Math.round(currTemp) > 70 && Math.round(currTemp) <= 80)){
             setCategory(warmDaytimeFoods[Math.floor(Math.random()* warmDaytimeFoods.length)]);
             setShowCarousel(!showCarousel);
@@ -20,6 +21,11 @@ const Activities = ({location, mode, currTemp}) => {
 
         if (mode === "daytime" && (currTemp > 81)){
             setCategory(hotDaytimeFoods[Math.floor(Math.random()* warmDaytimeFoods.length)]);
+            setShowCarousel(!showCarousel);
+        }
+
+        if(mode === "daytime" && (currTemp < 70)){
+            setCategory(coolDaytimeFoods[Math.floor(Math.random() * coolDaytimeFoods.length)]);
             setShowCarousel(!showCarousel);
         }
 
@@ -57,7 +63,7 @@ const Activities = ({location, mode, currTemp}) => {
                     <Carousel.Item onClick={handleItemClick}>
                         <img
                             className="d-block w-100"
-                            src="https://media.istockphoto.com/photos/table-top-view-of-spicy-food-picture-id1316145932?b=1&k=20&m=1316145932&s=170667a&w=0&h=feyrNSTglzksHoEDSsnrG47UoY_XX4PtayUPpSMunQI="
+                            src="https://images.squarespace-cdn.com/content/v1/5c5c3833840b161566b02a76/1573133725500-Y5PCN0V04I86HDAT8AT0/WBC_7095.jpg?format=2500w"
                             alt="First slide"
                         />
                         <Carousel.Caption>
@@ -77,7 +83,7 @@ const Activities = ({location, mode, currTemp}) => {
                     }}>
                         <img
                             className="d-block w-100"
-                            src="https://www.surfertoday.com/images/stories/beach-quotes.jpg"
+                            src="https://images.unsplash.com/photo-1648490295298-ca86ac2b203f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80"
                             alt="Second slide"
                         />
                         <Carousel.Caption>
