@@ -7,7 +7,7 @@ const Activities = ({location, mode, currTemp}) => {
 
     const [businesses, setBusinesses] = useState();
     const [showCarousel, setShowCarousel] = useState(true);
-    const [categories, setCategory] = useState("")
+    const [categories, setCategory] = useState("");
 
     function handleItemClick(){
         const warmDaytimeFoods = ["brunch", "bakeries", "lunch", "coffee"];
@@ -34,12 +34,7 @@ const Activities = ({location, mode, currTemp}) => {
             setShowCarousel(!showCarousel);
         }           
     }
-        
-    
-
     useEffect(() => {
-
-        
         const fetcher = async () => {
             const result = await axios.get(`${' https://still-bayou-05012.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${location}`, {
                 headers: {
@@ -53,7 +48,6 @@ const Activities = ({location, mode, currTemp}) => {
             console.log(categories);
         }
         fetcher();
-
     }, [location, categories])
 
     return (

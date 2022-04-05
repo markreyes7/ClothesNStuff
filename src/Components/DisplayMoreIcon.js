@@ -1,7 +1,7 @@
 import { Icon } from 'semantic-ui-react';
 import {useState} from 'react';
 const DisplayMoreIcon = ({ displayActivities, setDisplayActivities }) => {
-   const [isDisplayed, setIsDisplayed] = useState(false);
+   const [isDisplayed, setIsDisplayed] = useState(true);
     return (
         <div onClick={() => {
             setDisplayActivities(!displayActivities);

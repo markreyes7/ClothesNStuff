@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import {Icon} from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 const axios = require('axios');
 
 
@@ -9,10 +8,8 @@ function MyVerticallyCenteredModal(props) {
     return (
         <Modal
             {...props}
-            size="lg"
             aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
+            centered>
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     {(props.bizdetails === undefined) ? <>Loading.......</> : <>{props.bizdetails.data.name}</>}
@@ -20,29 +17,28 @@ function MyVerticallyCenteredModal(props) {
             </Modal.Header>
             <Modal.Body>
                 <div className='icon-rating'>
-                    {(props.bizdetails === undefined) ? <>Loading rating.......</> : 
-                    [...Array(Math.round(props.bizdetails.data.rating))].map((el, index) => <Icon name='star' key={index}></Icon> )}
+                    {(props.bizdetails === undefined) ? <>Loading rating.......</> :
+                        [...Array(Math.round(props.bizdetails.data.rating))].map((el, index) => <Icon name='star' key={index}></Icon>)}
                 </div>
                 <div className='modal-description-header'>
-                    <div>
-                        {(props.bizdetails === undefined || props.bizdetails.data.is_closed === true ) ? <>Closed</> : <>Open</>}
+                    <div className='open-closed'>
+                        {(props.bizdetails === undefined || props.bizdetails.data.is_closed === true) ? <>Closed</> : <>Open</>}
                     </div>
-                    {(props.bizdetails === undefined) ? <>Loading......</> : <p>{props.bizdetails.data.display_phone}</p>}
+                    <div className='phone-num'>
+                        {(props.bizdetails === undefined) ? <>Loading......</> : <p>{props.bizdetails.data.display_phone}</p>}
+                    </div>
                 </div>
-
-                {(props.bizdetails === undefined) ? <>LOADING.......</> :
-                    (props.bizdetails.data.categories.map((elem, i) =>
-                        <li>{elem.title}</li>))}
+                <div>
+                    {(props.bizdetails === undefined) ? <>LOADING.......</> :
+                        (props.bizdetails.data.categories.map((elem, i) =>
+                            <li>{elem.title}</li>))}
+                </div>
             </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
         </Modal>
-    );
+    )
 }
 
-
-const ListOfThings = ({ location, categories, businesses, showCarousel, setShowCarousel }) => {
+const ListOfThings = ({ businesses }) => {
     const [randomActivities, setRandomActivities] = useState();
     const [modal, setShowModal] = useState(false);
     const [modalDetails, setModalDetails] = useState();
@@ -53,13 +49,12 @@ const ListOfThings = ({ location, categories, businesses, showCarousel, setShowC
         let temp = []
         let i = 0;
         while (i !== 8) {
-            temp.push(businesses[i]);
+            temp.push(businesses[random()]);
             i++;
         }
         setRandomActivities(temp);
 
     }, [businesses])
-
 
     useEffect(() => {
         setModalDetails(modalObj)
@@ -67,7 +62,6 @@ const ListOfThings = ({ location, categories, businesses, showCarousel, setShowC
 
     return (
         <div className='activities'>
-
             {(typeof randomActivities === 'undefined') ? (<></>) : (randomActivities.map((object, index) =>
                 <div className='activity' data-id={object.id} onClick={(e) => {
                     setShowModal(true);
@@ -84,7 +78,6 @@ const ListOfThings = ({ location, categories, businesses, showCarousel, setShowC
                         setModalObj(result)
                         console.log(modalObj)
                     }
-
                     fetcher();
 
                 }}>
@@ -97,15 +90,13 @@ const ListOfThings = ({ location, categories, businesses, showCarousel, setShowC
                     <div className='activity-location'>
                         <p>{object.location.address1}</p>
                     </div>
-
-
                 </div>))}
             {(modal) ? (<MyVerticallyCenteredModal
                 bizdetails={modalDetails}
                 show={modal}
                 onHide={() => setShowModal(false)}
             />) : (<></>)}
-           
+
         </div>
     )
 }

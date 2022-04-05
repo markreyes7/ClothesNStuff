@@ -4,6 +4,12 @@ img{
   object-fit: cover;
 }
 
+li{
+  list-style-type:disc;
+  font-size: 1.1rem;
+  padding: 0.6rem;
+}
+
 .daytime{
   background: linear-gradient(180deg, rgba(29,175,253,1) 7%, rgb(164 225 242) 93%);
   color: white
@@ -67,8 +73,6 @@ img{
     padding: 1rem 1rem;
 }
 
-
-
 .activities{
   display: flex;
   flex-direction: column;
@@ -113,7 +117,6 @@ img{
 
 .activity-img{
   display: flex;
-    /* width: 80%; */
     height: 60%;
     justify-content: center;
 }
@@ -138,6 +141,7 @@ img{
 }
 
 .moon{
+  display: none;
   position: relative;
   grid-area: timeOfDay;
   height: 200px;
@@ -147,6 +151,7 @@ img{
   transform: rotate(-40deg);
   margin-left: 25px;
   margin-bottom: 10px;
+  box-shadow: -23px 0 7px -18px #fff;
 }
 
 
@@ -154,7 +159,6 @@ img{
   position: absolute;
   height: 3px;
   width: 3px;
-  /* bottom: 20%; */
   left: 32%;
   top: 63%;
   background-color: white;
@@ -164,29 +168,38 @@ img{
   position: absolute;
   height: 3px;
   width: 3px;
-  /* bottom: 20%; */
   top: 84%;
-
   left: 29%;
-  /* right: 8%; */
   background-color: white;
 }
+
 
 .star-3{
   position: absolute;
   height: 3px;
   width: 3px;
-  /* bottom: 20%; */
   left: 22%;
-  
   top: 72%;
-  /* right: 8%; */
   background-color: white;
+}
+
+.icon-rating{
+  color: rgb(255, 213, 25);
 }
 
 
 .w-100{
   width: 95% !important;
+}
+
+.open-closed{
+  font-size: larger;
+}
+.phone-num{
+  font-size: larger;
+}
+.modal-description-header{
+  padding: 3rem 1rem !important;
 }
 @media screen and (min-width:800px) {
   .nighttime{
@@ -278,7 +291,9 @@ img{
     text-align: center;
     padding-top: 4px;
   }
-  
+  .moon{
+    display: block;
+  }
 }
 
 
@@ -288,7 +303,7 @@ img{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    height: 130vh;
+    height: 142vh;
     grid-template-areas: 
     "timeOfDay display display display"
     "weather activities activities activities"
@@ -311,6 +326,7 @@ img{
   }
 
   .moon{
+    display: block;
     width: 250px;
     height: 250px;
     margin-left: 40px;

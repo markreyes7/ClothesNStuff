@@ -11,7 +11,7 @@ let today = new Date();
 
 function App() {
   const [mode, setMode] = useState('daytime'); 
-  const [displayActivities, setDisplayActivities] = useState(false);
+  const [displayActivities, setDisplayActivities] = useState(true);
   const [location, setLocation] = useState('Los Angeles');
   const [currTemp, setCurrTemp] = useState(75);
 
@@ -21,14 +21,11 @@ function App() {
     }
 
     else {
-      console.log(today.getHours())
       setMode("nighttime")
     }
-
   }, [])
   return (
     <div className={mode}>
-      
         <Weather setCurrTemp={setCurrTemp} currTemp={currTemp} location={location} setLocation={setLocation} displayActivities={displayActivities}  ></Weather>
         <DisplayMoreIcon displayActivities={displayActivities} setDisplayActivities={setDisplayActivities} />
         {(displayActivities) ? (<Activities currTemp={currTemp} mode={mode} location={location}></Activities>) : (<></>)}
